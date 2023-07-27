@@ -1,0 +1,15 @@
+FROM node:18
+
+WORKDIR /app
+
+COPY package* .
+    
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+RUN npm run lint
+
+ENTRYPOINT ["npm","run","dev"]
