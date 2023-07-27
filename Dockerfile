@@ -1,6 +1,6 @@
 ## base -- Stage 1
-FROM node:18 AS base
-
+#FROM node:18 AS base
+FROM node:19.7.0-slim AS base
 WORKDIR /app
 
 COPY package* .
@@ -30,8 +30,8 @@ RUN npm run build
 
 ## for production -- Stage 4
 
-FROM node:slim
-# FROM gcr.io/distroless/nodejs18-debian11
+# FROM node:slim
+FROM gcr.io/distroless/nodejs18-debian11
 
 WORKDIR /app
 
